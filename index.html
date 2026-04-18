@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tseparation | High Performance</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="dark-mode">
+    
+    <section id="login-screen" class="auth-container">
+        <div class="glass-card login-box">
+            <img src="c:\Users\enriq\Downloads\WhatsApp Image 2026-04-14 at 18.26.21.jpeg" alt="Logo" class="login-logo">
+            <div class="input-stack">
+                <input type="email" id="emailInput" placeholder="Seu Gmail">
+                <input type="text" id="userInput" placeholder="Usuário">
+                <input type="password" id="passInput" placeholder="Senha">
+                <button class="btn-primary" onclick="handleAuth()">ACESSAR TSEPARATION</button>
+            </div>
+        </div>
+    </section>
+
+    <main id="app-screen" style="display: none;">
+        <nav class="sidebar">
+            <img src="logo 01.jpg" alt="Logo" class="nav-logo">
+            <div id="theme-toggle" class="theme-switch" onclick="toggleTheme()">☀️</div>
+            <div class="nav-menu">
+                <button onclick="exportData()" class="btn-side">💾 EXPORTAR</button>
+                <label class="btn-side">📂 IMPORTAR <input type="file" id="importFile" onchange="importData(event)" style="display:none"></label>
+            </div>
+            <div class="user-badge">
+                <span id="displayEmail"></span>
+            </div>
+            <button class="btn-logout" onclick="logout()">SAIR</button>
+        </nav>
+
+        <section class="main-content">
+            <div class="content-header">
+                <h1 id="welcomeText">Dashboard</h1>
+                <p class="tagline">Separação entre o comum e o extraordinário.</p>
+            </div>
+
+            <div id="daysGrid" class="days-container">
+                </div>
+        </section>
+    </main>
+
+    <div id="task-modal" class="modal-overlay">
+        <div class="modal-card glass-card">
+            <div class="modal-header">
+                <h2 id="selectedDayTitle">Dia</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            
+            <div class="task-form">
+                <input type="text" id="taskInput" placeholder="Defina sua meta...">
+                <select id="taskPriority">
+                    <option value="Alta">ALTA (URGENTE)</option>
+                    <option value="Média">MÉDIA (IMPORTANTE)</option>
+                    <option value="Baixa">BAIXA (ROTINA)</option>
+                </select>
+                <button class="btn-add-task" onclick="addTask()">ADICIONAR</button>
+            </div>
+
+            <ul id="taskList" class="task-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
